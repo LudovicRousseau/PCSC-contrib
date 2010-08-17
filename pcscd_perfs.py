@@ -1,4 +1,5 @@
 #! /usr/bin/env python
+# -*- coding: utf-8 -*-
 
 """
 #   pcscd_perfs.py: calculate the cumulative times of pcscd logs
