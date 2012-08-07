@@ -1,0 +1,9 @@
+noinst_PROGRAMS = sample
+
+sample_SOURCES = sample.c PCSCv2part10.c
+
+sample_CFLAGS = $(PCSC_CFLAGS)
+sample_LDADD = $(PCSC_LIBS)
+
+doxygen:
+	rm -rf html ; doxygen doxygen.conf
