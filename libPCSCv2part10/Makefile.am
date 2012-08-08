@@ -6,4 +6,4 @@ sample_CFLAGS = $(PCSC_CFLAGS)
 sample_LDADD = $(PCSC_LIBS)
 
 doxygen:
-	rm -rf html ; doxygen doxygen.conf
+	rm -rf libPCSCv2part10 ; doxygen doxygen.conf
