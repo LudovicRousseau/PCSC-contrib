@@ -65,9 +65,9 @@ int main(void)
 		SCARD_SHARE_SHARED, SCARD_PROTOCOL_T0 | SCARD_PROTOCOL_T1,
 		&hCard, &dwPref);
 
+	/* the interesting part is here */
 	ret = PCSCv2Part10_find_TLV_property_by_tag_from_hcard(hCard,
 		PCSCv2_PART10_PROPERTY_wIdVendor, &value);
-
 	printf("ret: %d\n", ret);
 	printf("value for PCSCv2_PART10_PROPERTY_wIdVendor: 0x%04X\n", value),
 
