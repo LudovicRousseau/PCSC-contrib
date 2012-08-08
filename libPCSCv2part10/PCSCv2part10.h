@@ -23,10 +23,30 @@
 
 /**
  * @file
+ * @defgroup API API
+ *
+ * The available PC/SC v2 part 10 tags are (from pcsc-lite 1.8.5):
+ *
+ * - PCSCv2_PART10_PROPERTY_wLcdLayout
+ * - PCSCv2_PART10_PROPERTY_bEntryValidationCondition
+ * - PCSCv2_PART10_PROPERTY_bTimeOut2
+ * - PCSCv2_PART10_PROPERTY_wLcdMaxCharacters
+ * - PCSCv2_PART10_PROPERTY_wLcdMaxLines
+ * - PCSCv2_PART10_PROPERTY_bMinPINSize
+ * - PCSCv2_PART10_PROPERTY_bMaxPINSize
+ * - PCSCv2_PART10_PROPERTY_sFirmwareID
+ * - PCSCv2_PART10_PROPERTY_bPPDUSupport
+ * - PCSCv2_PART10_PROPERTY_dwMaxAPDUDataSize
+ * - PCSCv2_PART10_PROPERTY_wIdVendor
+ * - PCSCv2_PART10_PROPERTY_wIdProduct
+ *
+ * Example of code:
+ * @include sample.c
  */
 
 /**
  * @brief Find an integer value by tag from TLV buffer
+ * @ingroup API
  *
  * @param buffer buffer received from FEATURE_GET_TLV_PROPERTIES
  * @param length buffer length
@@ -44,6 +64,7 @@ int PCSCv2Part10_find_TLV_property_by_tag_from_buffer(
 
 /**
  * @brief Find a integer value by tag from a PC/SC card handle
+ * @ingroup API
  *
  * @param hCard card handle as returned by SCardConnect()
  * @param tag_searched tag searched
