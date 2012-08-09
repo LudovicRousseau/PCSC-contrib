@@ -32,14 +32,13 @@ AM_PROG_AR
 PKG_PROG_PKG_CONFIG
 
 # check pcsc-lite version
-PCSC_NEEDED_VERSION="1.8.3"
 PKG_CHECK_EXISTS([libpcsclite],
-	[PKG_CHECK_MODULES(PCSC, libpcsclite >= $PCSC_NEEDED_VERSION, [],
+	[PKG_CHECK_MODULES(PCSC,, [],
 	[
 	if test -f /usr/local/lib/pkgconfig/libpcsclite.pc -a "x$PKG_CONFIG" != x ; then
 		AC_MSG_ERROR([use PKG_CONFIG_PATH=/usr/local/lib/pkgconfig ./configure])
 	  else
-		AC_MSG_WARN([install pcsc-lite $PCSC_NEEDED_VERSION or later])
+		AC_MSG_WARN([install pcsc-lite])
 	  fi
 	])],
 	[AC_MSG_WARN([libpcsclite not found by pkg-config])]
@@ -47,7 +46,7 @@ PKG_CHECK_EXISTS([libpcsclite],
 
 saved_CPPFLAGS="$CPPFLAGS"
 CPPFLAGS="$CPPFLAGS $PCSC_CFLAGS"
-PCSC_ERROR_MSG="install pcsc-lite $PCSC_NEEDED_VERSION or later, or use ./configure PCSC_CFLAGS=..."
+PCSC_ERROR_MSG="install pcsc-lite, or use ./configure PCSC_CFLAGS=..."
 AC_CHECK_HEADER(reader.h,, [AC_MSG_ERROR([$PCSC_ERROR_MSG])])
 CPPFLAGS="$saved_CPPFLAGS"
 
