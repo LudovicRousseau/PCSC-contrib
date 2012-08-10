@@ -34,7 +34,7 @@
 #include "PCSCv2part10.h"
 
 int PCSCv2Part10_find_TLV_property_by_tag_from_buffer(
-	unsigned char *buffer, int length, int tag_searched, int * value_int)
+	unsigned char *buffer, int length, int property, int * value_int)
 {
 	unsigned char *p;
 	int found = 0, len;
@@ -44,7 +44,7 @@ int PCSCv2Part10_find_TLV_property_by_tag_from_buffer(
 	p = buffer;
 	while (p-buffer < length)
 	{
-		if (*p++ == tag_searched)
+		if (*p++ == property)
 		{
 			found = 1;
 			break;
@@ -84,7 +84,7 @@ int PCSCv2Part10_find_TLV_property_by_tag_from_buffer(
 } /* PCSCv2Part10_find_TLV_property_by_tag_from_buffer */
 
 int PCSCv2Part10_find_TLV_property_by_tag_from_hcard(SCARDHANDLE hCard,
-	int tag_searched, int * value)
+	int property, int * value)
 {
 	unsigned char buffer[MAX_BUFFER_SIZE];
 	LONG rv;
@@ -120,6 +120,6 @@ int PCSCv2Part10_find_TLV_property_by_tag_from_hcard(SCARDHANDLE hCard,
 		buffer, sizeof buffer, &length);
 
 	return PCSCv2Part10_find_TLV_property_by_tag_from_buffer(buffer,
-		length, tag_searched, value);
+		length, property, value);
 }
 

@@ -114,7 +114,7 @@ typedef struct
  *
  * @param buffer buffer received from FEATURE_GET_TLV_PROPERTIES
  * @param length buffer length
- * @param tag_searched tag searched
+ * @param property tag searched
  * @param[out] value value found
  * @return Error code
  *
@@ -124,17 +124,17 @@ typedef struct
  *
  */
 int PCSCv2Part10_find_TLV_property_by_tag_from_buffer(
-	unsigned char *buffer, int length, int tag_searched, int * value);
+	unsigned char *buffer, int length, int property, int * value);
 
 /**
  * @brief Find a integer value by tag from a PC/SC card handle
  * @ingroup API
  *
  * @param hCard card handle as returned by SCardConnect()
- * @param tag_searched tag searched
+ * @param property tag searched
  * @param[out] value value found
  * @return Error code (see PCSCv2Part10_find_TLV_property_by_tag_from_buffer())
  */
 int PCSCv2Part10_find_TLV_property_by_tag_from_hcard(SCARDHANDLE hCard,
-	int tag_searched, int * value);
+	int property, int * value);
 
