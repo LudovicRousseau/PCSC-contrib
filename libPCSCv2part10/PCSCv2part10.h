@@ -91,18 +91,18 @@ typedef struct
  *
  * The available PC/SC v2 part 10 tags are (from pcsc-lite 1.8.5):
  *
- * - PCSCv2_PART10_PROPERTY_wLcdLayout
- * - PCSCv2_PART10_PROPERTY_bEntryValidationCondition
- * - PCSCv2_PART10_PROPERTY_bTimeOut2
- * - PCSCv2_PART10_PROPERTY_wLcdMaxCharacters
- * - PCSCv2_PART10_PROPERTY_wLcdMaxLines
- * - PCSCv2_PART10_PROPERTY_bMinPINSize
- * - PCSCv2_PART10_PROPERTY_bMaxPINSize
- * - PCSCv2_PART10_PROPERTY_sFirmwareID
- * - PCSCv2_PART10_PROPERTY_bPPDUSupport
- * - PCSCv2_PART10_PROPERTY_dwMaxAPDUDataSize
- * - PCSCv2_PART10_PROPERTY_wIdVendor
- * - PCSCv2_PART10_PROPERTY_wIdProduct
+ * - \ref PCSCv2_PART10_PROPERTY_wLcdLayout
+ * - \ref PCSCv2_PART10_PROPERTY_bEntryValidationCondition
+ * - \ref PCSCv2_PART10_PROPERTY_bTimeOut2
+ * - \ref PCSCv2_PART10_PROPERTY_wLcdMaxCharacters
+ * - \ref PCSCv2_PART10_PROPERTY_wLcdMaxLines
+ * - \ref PCSCv2_PART10_PROPERTY_bMinPINSize
+ * - \ref PCSCv2_PART10_PROPERTY_bMaxPINSize
+ * - \ref PCSCv2_PART10_PROPERTY_sFirmwareID
+ * - \ref PCSCv2_PART10_PROPERTY_bPPDUSupport
+ * - \ref PCSCv2_PART10_PROPERTY_dwMaxAPDUDataSize
+ * - \ref PCSCv2_PART10_PROPERTY_wIdVendor
+ * - \ref PCSCv2_PART10_PROPERTY_wIdProduct
  *
  * Example of code:
  * @include sample.c
