@@ -47,7 +47,7 @@ PKG_CHECK_EXISTS([libpcsclite],
 saved_CPPFLAGS="$CPPFLAGS"
 CPPFLAGS="$CPPFLAGS $PCSC_CFLAGS"
 PCSC_ERROR_MSG="install pcsc-lite, or use ./configure PCSC_CFLAGS=..."
-AC_CHECK_HEADER(reader.h,, [AC_MSG_ERROR([$PCSC_ERROR_MSG])])
+AC_CHECK_HEADERS(reader.h)
 CPPFLAGS="$saved_CPPFLAGS"
 
 # Write Makefiles.

@@ -21,7 +21,13 @@
  * $Id$
  */
 
+#ifdef HAVE_CONFIG_H
+#include "config.h"
+#endif
+
+#ifdef HAVE_READER_H
 #include <reader.h>
+#endif
 
 /**
  * @file
