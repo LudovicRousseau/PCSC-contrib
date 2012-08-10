@@ -21,12 +21,68 @@
  * $Id$
  */
 
+#ifndef __reader_h__
+
 #ifdef HAVE_CONFIG_H
 #include "config.h"
 #endif
 
 #ifdef HAVE_READER_H
 #include <reader.h>
+#else
+
+/**
+ * Provide source compatibility on different platforms
+ */
+#define SCARD_CTL_CODE(code) (0x42000000 + (code))
+
+/**
+ * PC/SC part 10 v2.02.07 March 2010 reader tags
+ */
+#define CM_IOCTL_GET_FEATURE_REQUEST SCARD_CTL_CODE(3400)
+
+#define FEATURE_GET_TLV_PROPERTIES       0x12
+
+#include <inttypes.h>
+
+/* Set structure elements aligment on bytes
+ * http://gcc.gnu.org/onlinedocs/gcc/Structure_002dPacking-Pragmas.html */
+#if defined(__APPLE__) | defined(sun)
+#pragma pack(1)
+#else
+#pragma pack(push, 1)
+#endif
+
+/** the structure must be 6-bytes long */
+typedef struct
+{
+	uint8_t tag;
+	uint8_t length;
+	uint32_t value;	/**< This value is always in BIG ENDIAN format as documented in PCSC v2 part 10 ch 2.2 page 2. You can use ntohl() for example */
+} PCSC_TLV_STRUCTURE;
+
+/* restore default structure elements alignment */
+#if defined(__APPLE__) | defined(sun)
+#pragma pack()
+#else
+#pragma pack(pop)
+#endif
+
+/* properties returned by FEATURE_GET_TLV_PROPERTIES */
+#define PCSCv2_PART10_PROPERTY_wLcdLayout 1
+#define PCSCv2_PART10_PROPERTY_bEntryValidationCondition 2
+#define PCSCv2_PART10_PROPERTY_bTimeOut2 3
+#define PCSCv2_PART10_PROPERTY_wLcdMaxCharacters 4
+#define PCSCv2_PART10_PROPERTY_wLcdMaxLines 5
+#define PCSCv2_PART10_PROPERTY_bMinPINSize 6
+#define PCSCv2_PART10_PROPERTY_bMaxPINSize 7
+#define PCSCv2_PART10_PROPERTY_sFirmwareID 8
+#define PCSCv2_PART10_PROPERTY_bPPDUSupport 9
+#define PCSCv2_PART10_PROPERTY_dwMaxAPDUDataSize 10
+#define PCSCv2_PART10_PROPERTY_wIdVendor 11
+#define PCSCv2_PART10_PROPERTY_wIdProduct 12
+
+#endif
 #endif
 
 /**
