@@ -33,7 +33,7 @@ PKG_PROG_PKG_CONFIG
 
 # check pcsc-lite version
 PKG_CHECK_EXISTS([libpcsclite],
-	[PKG_CHECK_MODULES(PCSC,, [],
+	[PKG_CHECK_MODULES(PCSC, libpcsclite, [],
 	[
 	if test -f /usr/local/lib/pkgconfig/libpcsclite.pc -a "x$PKG_CONFIG" != x ; then
 		AC_MSG_ERROR([use PKG_CONFIG_PATH=/usr/local/lib/pkgconfig ./configure])
