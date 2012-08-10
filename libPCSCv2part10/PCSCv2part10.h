@@ -21,6 +21,8 @@
  * $Id$
  */
 
+#include <reader.h>
+
 /**
  * @file
  * @defgroup API API
