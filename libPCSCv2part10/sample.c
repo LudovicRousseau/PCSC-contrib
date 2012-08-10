@@ -29,7 +29,6 @@
 #else
 #include <winscard.h>
 #endif
-#include <reader.h>
 
 
 #include "PCSCv2part10.h"
