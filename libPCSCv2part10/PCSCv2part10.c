@@ -118,6 +118,8 @@ int PCSCv2Part10_find_TLV_property_by_tag_from_hcard(SCARDHANDLE hCard,
 
 	rv= SCardControl(hCard, properties_in_tlv_ioctl, NULL, 0,
 		buffer, sizeof buffer, &length);
+	if (rv != SCARD_S_SUCCESS)
+		return -1;
 
 	return PCSCv2Part10_find_TLV_property_by_tag_from_buffer(buffer,
 		length, property, value);
