@@ -58,7 +58,7 @@ int main(void)
 	PCSC_ERROR_EXIT(rv)
 
 	/* use first reader */
-	printf("Using reaer: %s\n", mszReaders);
+	printf("Using reader: %s\n", mszReaders);
 
 	rv = SCardConnect(hContext, mszReaders,
 		SCARD_SHARE_SHARED, SCARD_PROTOCOL_T0 | SCARD_PROTOCOL_T1,
