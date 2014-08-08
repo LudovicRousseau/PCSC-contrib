@@ -63,6 +63,7 @@ int main(void)
 	rv = SCardConnect(hContext, mszReaders,
 		SCARD_SHARE_SHARED, SCARD_PROTOCOL_T0 | SCARD_PROTOCOL_T1,
 		&hCard, &dwPref);
+	PCSC_ERROR_EXIT(rv)
 
 	/* the interesting part is here */
 	ret = PCSCv2Part10_find_TLV_property_by_tag_from_hcard(hCard,
