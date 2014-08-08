@@ -61,7 +61,7 @@ int main(void)
 	printf("Using reader: %s\n", mszReaders);
 
 	rv = SCardConnect(hContext, mszReaders,
-		SCARD_SHARE_SHARED, SCARD_PROTOCOL_T0 | SCARD_PROTOCOL_T1,
+		SCARD_SHARE_DIRECT, SCARD_PROTOCOL_T0 | SCARD_PROTOCOL_T1,
 		&hCard, &dwPref);
 	PCSC_ERROR_EXIT(rv)
 
