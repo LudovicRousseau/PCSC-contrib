@@ -30,8 +30,8 @@ import sys
 
 def convert(filename):
     root = plistlib.readPlist(filename)
-    for key in root:
-        print key
+#    for key in root:
+#        print key
     zipped = zip(root['ifdVendorID'], root['ifdProductID'],
                  root['ifdFriendlyName'])
     for elt in sorted(zipped):
