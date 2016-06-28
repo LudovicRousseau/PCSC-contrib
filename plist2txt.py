@@ -35,7 +35,7 @@ def convert(filename):
     zipped = zip(root['ifdVendorID'], root['ifdProductID'],
                  root['ifdFriendlyName'])
     for elt in sorted(zipped):
-        print elt
+        print ":".join(elt)
 
 if __name__ == "__main__":
     convert(sys.argv[1])
