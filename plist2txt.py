@@ -23,6 +23,7 @@
 # Usage:
 # ./plist2txt.py /usr/lib/pcsc/drivers/ifd-ccid.bundle/Contents/Info.plist
 
+from __future__ import print_function
 
 import plistlib
 import sys
@@ -32,10 +33,21 @@ def convert(filename):
     root = plistlib.readPlist(filename)
 #    for key in root:
 #        print key
+
+    n_ifdVendorID = len(root['ifdVendorID'])
+    n_ifdProductID = len(root['ifdProductID'])
+    n_ifdFriendlyName = len(root['ifdFriendlyName'])
+    if n_ifdVendorID != n_ifdProductID or n_ifdVendorID != n_ifdFriendlyName:
+        print("Error: wrongs sizes")
+        print("ifdVendorID:", n_ifdVendorID)
+        print("ifdProductID:", n_ifdProductID)
+        print("ifdFriendlyName:", n_ifdFriendlyName)
+        return
+
     zipped = zip(root['ifdVendorID'], root['ifdProductID'],
                  root['ifdFriendlyName'])
     for elt in sorted(zipped):
-        print ":".join(elt)
+        print(":".join(elt))
 
 if __name__ == "__main__":
     convert(sys.argv[1])
