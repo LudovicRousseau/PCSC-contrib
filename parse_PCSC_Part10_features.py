@@ -59,4 +59,7 @@ properties = parseTlvProperties(data_in)
 print()
 print("FEATURE_GET_TLV_PROPERTIES results")
 for k, v in list(properties.items()):
-    print(" %s: %s" % (k, v))
+    if isinstance(v, int):
+        print(" %s: %d or 0x%04X" % (k, v, v))
+    else:
+        print(" %s: %s" % (k, v))
