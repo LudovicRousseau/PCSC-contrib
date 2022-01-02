@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
 """
@@ -23,16 +23,15 @@
 # Usage:
 # ./plist2txt.py /usr/lib/pcsc/drivers/ifd-ccid.bundle/Contents/Info.plist
 
-from __future__ import print_function
-
 import plistlib
 import sys
 
 
 def convert(filename):
-    root = plistlib.readPlist(filename)
-#    for key in root:
-#        print key
+    with open(filename, 'rb') as fp:
+        root = plistlib.load(fp)
+        # for key in root:
+        #    print(key)
 
     n_ifdVendorID = len(root['ifdVendorID'])
     n_ifdProductID = len(root['ifdProductID'])
