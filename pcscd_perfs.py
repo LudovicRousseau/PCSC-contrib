@@ -1,4 +1,4 @@
-#! /usr/bin/env python
+#! /usr/bin/env python3
 # -*- coding: utf-8 -*-
 
 """
@@ -54,7 +54,7 @@ def total_time(file):
             return
 
         total += int(delta)
-        print "%08d" % total, line,
+        print("%08d" % total, line, end='')
 
 if __name__ == "__main__":
     import sys
