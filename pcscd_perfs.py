@@ -39,7 +39,7 @@
 # 00000316 00000316 configfile.l:242:DBGetReaderListDir() Parsing conf directory: /etc/reader.conf.d
 # 00000345 00000029 configfile.l:284:DBGetReaderList() Parsing conf file: /etc/reader.conf.d/0comments
 
-# The first column is the cummulative time in µs i.e. the sum of the
+# The first column is the cumulative time in µs i.e. the sum of the
 # second column
 
 
