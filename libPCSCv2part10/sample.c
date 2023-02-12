@@ -42,7 +42,7 @@ int main(void)
 	LONG rv;
 	SCARDCONTEXT hContext;
 	SCARDHANDLE hCard;
-	int value, ret = -1;
+	int value = -1, ret = -1;
 	DWORD dwReaders, dwPref;
 	char *mszReaders;
 
