@@ -1,5 +1,6 @@
 #!/bin/sh
 
+set -e
 set -x
 rm -rf libPCSCv2part10
 make doxygen
