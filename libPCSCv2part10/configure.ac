@@ -33,11 +33,9 @@ PKG_PROG_PKG_CONFIG
 PKG_CHECK_EXISTS([libpcsclite],
 	[PKG_CHECK_MODULES(PCSC, libpcsclite, [],
 	[
-	if test -f /usr/local/lib/pkgconfig/libpcsclite.pc -a "x$PKG_CONFIG" != x ; then
-		AC_MSG_ERROR([use PKG_CONFIG_PATH=/usr/local/lib/pkgconfig ./configure])
-	  else
-		AC_MSG_WARN([install pcsc-lite])
-	  fi
+	AS_IF([test -f /usr/local/lib/pkgconfig/libpcsclite.pc -a "x$PKG_CONFIG" != x],
+		[AC_MSG_ERROR([use PKG_CONFIG_PATH=/usr/local/lib/pkgconfig ./configure])],
+		[AC_MSG_WARN([install pcsc-lite])])
 	])],
 	[AC_MSG_WARN([libpcsclite not found by pkg-config])]
 )
