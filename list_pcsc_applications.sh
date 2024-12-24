@@ -31,7 +31,7 @@ do
 	if grep libpcsclite.so.1 "$p"/maps &> /dev/null
 	then
 		echo -n "process: " 
-		cat "$p"/cmdline
+		tr '\000' ' ' < "$p"/cmdline
 		echo " ($p)"
 	fi
 done
