@@ -27,10 +27,10 @@ cd /proc
 
 for p in [0-9]*
 do
-	if grep libpcsclite.so.1 $p/maps &> /dev/null
+	if grep libpcsclite.so.1 "$p"/maps &> /dev/null
 	then
 		echo -n "process: " 
-		cat $p/cmdline
+		cat "$p"/cmdline
 		echo " ($p)"
 	fi
 done
