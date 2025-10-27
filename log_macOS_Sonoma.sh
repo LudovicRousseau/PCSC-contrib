@@ -32,4 +32,4 @@ do
 	esac
 done
 
-log stream --predicate '(process = "usbsmartcardreaderd") || (process = "com.apple.ctkpcscd") || (process = "com.apple.ifdreader")' --source $arg
+log stream --predicate '(process = "usbsmartcardreaderd") || (process = "com.apple.ctkpcscd") || (process = "com.apple.ifdreader") || (process = "com.apple.ifdbundle")' --source $arg
